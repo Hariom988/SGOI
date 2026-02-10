@@ -1,7 +1,13 @@
-import NavBar from "./navBar";
+import NavBar from "@/app/components/navBar";
+import HeroSection from "./heroSection";
 
 const HomePage = () => {
-  return <NavBar />;
+  return (
+    <>
+      <NavBar />
+      <HeroSection />
+    </>
+  );
 };
 
 export default HomePage;

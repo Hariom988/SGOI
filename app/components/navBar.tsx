@@ -1,4 +1,4 @@
-"use client"; // Required for useState in Next.js App Router
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -8,9 +8,9 @@ const NavbarLight = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "About", href: "/about" },
-    { name: "Careers", href: "/careers" },
-    { name: "Book Online", href: "/book-online" },
+    { name: "About", href: "/" },
+    { name: "Careers", href: "/" },
+    { name: "Book Online", href: "/" },
   ];
 
   return (
