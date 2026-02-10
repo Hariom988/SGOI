@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Logo from "@/public/LOGO.png";
 
@@ -38,9 +38,7 @@ const NavbarLight = () => {
           </div>
         </div>
 
-        {/* Right Section: Desktop Nav + CTA */}
         <div className="flex items-center gap-3 sm:gap-6">
-          {/* Desktop Navigation Pill */}
           <div className="hidden md:flex items-center bg-gray-50 border border-gray-200 rounded-full px-2 py-1">
             {navLinks.map((link) => (
               <Link
@@ -53,7 +51,6 @@ const NavbarLight = () => {
             ))}
           </div>
 
-          {/* CTA Button (Visible on all screens, size adjusted for mobile) */}
           <Link
             href="/quote"
             className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-blue-200 transition-all active:scale-95"
@@ -61,7 +58,6 @@ const NavbarLight = () => {
             Get a Quote
           </Link>
 
-          {/* Hamburger Button (Mobile Only) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
@@ -102,7 +98,6 @@ const NavbarLight = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-white border-b ${
           isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"

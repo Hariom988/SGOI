@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import carousel1 from "@/public/home/carousel1.webp";
-import carousel2 from "@/public/home/carousel2.webp";
-import carousel3 from "@/public/home/carousel3.webp";
+import carousel1 from "@/public/home/carousel1.jpg";
+import carousel2 from "@/public/home/carousel2.jpg";
+import carousel3 from "@/public/home/carousel3.jpg";
 
 const carouselData = [
   {
@@ -50,7 +50,7 @@ const HeroSection = () => {
 
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                 <h3
-                  className={`text-4xl md:text-5xl font-light text-white tracking-tight transition-transform duration-700 ${index === currentIndex ? "translate-y-0" : "translate-y-4"}`}
+                  className={`text-4xl md:text-6xl font-light text-white tracking-tight transition-transform duration-700 ${index === currentIndex ? "translate-y-0" : "translate-y-4"}`}
                 >
                   <b>{item.title}</b>
                 </h3>
