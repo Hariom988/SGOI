@@ -43,7 +43,7 @@ const reasons: Reason[] = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 bg-slate-50">
+    <section className="py-10 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="mb-10 text-center">
           <h2 className="text-[10px] font-bold tracking-[0.4em] text-blue-600 uppercase mb-2">
