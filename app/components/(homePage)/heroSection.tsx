@@ -1,102 +1,168 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import carousel1 from "@/public/home/carousel1.jpg";
 import carousel2 from "@/public/home/carousel2.jpg";
 import carousel3 from "@/public/home/carousel3.jpg";
 
-const carouselData = [
+const slides = [
   {
-    image: carousel1.src,
-    title: "Industrial Excellence",
-    subtitle: "High-grade jumbo rolls for global markets",
+    image: carousel1,
+    stat: "30,000 MT/ANNUALLY",
+    title: "India's Leading Foil Manufacturer",
+    description:
+      "Delivering high-grade aluminium solutions to global markets with precision and sustainability.",
   },
   {
-    image: carousel2.src,
-    title: "Precision Engineering",
-    subtitle: "Customized thickness for diverse packaging",
+    image: carousel2,
+    stat: "PAN INDIA REACH",
+    title: "Precision Rolled Products",
+    description:
+      "Customized thickness and superior heat retention for diverse industrial packaging needs.",
   },
   {
-    image: carousel3.src,
-    title: "Sustainable Quality",
-    subtitle: "Eco-friendly butter paper solutions",
+    image: carousel3,
+    stat: "ISO 9001 CERTIFIED",
+    title: "Sustainable Quality Standards",
+    description:
+      "Eco-friendly manufacturing processes ensuring 100% food-grade safety and reliability.",
   },
 ];
 
-const HeroSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const HeroCarousel = () => {
+  const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselData.length);
-    }, 4000);
-    return () => clearInterval(interval);
+  const nextSlide = useCallback(() => {
+    setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 3500);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   return (
-    <section className="flex flex-col md:flex-row w-full h-112 bg-white border-b border-gray-100">
-      <div className="w-full md:w-[60%] relative overflow-hidden h-full">
-        {carouselData.map((item, index) => (
+    <section className="relative w-full h-[90dvh] overflow-hidden bg-slate-950">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
           <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? "opacity-100" : "opacity-1"
+            className={`relative w-full h-full transition-transform duration-5000 ease-linear ${
+              index === current ? "scale-110" : "scale-100"
             }`}
           >
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${item.image})` }}
-            >
-              <div className="absolute inset-0 bg-black/50" />
+            <Image
+              src={slide.image}
+              alt={slide.title}
+              fill
+              priority={index === 0}
+              className="object-cover blur-[3px]"
+            />
+            <div className="absolute inset-0 bg-linear-to-r from-slate-950/95 via-slate-900/40 to-transparent" />
+          </div>
 
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-                <h3
-                  className={`text-4xl md:text-6xl font-light text-white tracking-tight transition-transform duration-700 ${index === currentIndex ? "translate-y-0" : "translate-y-4"}`}
+          <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-20 lg:px-32">
+            <div className="max-w-3xl">
+              <div className="overflow-hidden mb-4">
+                <span
+                  className={`inline-block text-blue-500 font-bold tracking-[0.3em] text-[10px] md:text-sm uppercase transition-all duration-700 delay-300 ${
+                    index === current
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-full opacity-0"
+                  }`}
                 >
-                  <b>{item.title}</b>
-                </h3>
-                <div className="h-px w-16 bg-blue-500 my-4"></div>
-                <p
-                  className={`text-lg text-gray-200 font-light tracking-wide transition-transform duration-700 delay-100 ${index === currentIndex ? "translate-y-0" : "translate-y-4"}`}
-                >
-                  {item.subtitle}
-                </p>
+                  {slide.stat}
+                </span>
+              </div>
+
+              <h1
+                className={`text-4xl md:text-7xl font-bold text-white leading-[1.1] mb-6 transition-all duration-700 delay-500 ${
+                  index === current
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                {slide.title.split(" ").map((word, i) => (
+                  <span key={i} className={i === 2 ? "text-blue-500" : ""}>
+                    {word}{" "}
+                  </span>
+                ))}
+              </h1>
+
+              <p
+                className={`text-slate-200 text-sm md:text-xl max-w-xl mb-10 leading-relaxed font-light transition-all duration-700 delay-700 ${
+                  index === current
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                {slide.description}
+              </p>
+
+              <div
+                className={`transition-all duration-700 delay-1000 ${
+                  index === current
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                <button className="group cursor-pointer flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-lg shadow-blue-900/20">
+                  Explore Products
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform group-hover:translate-x-2"
+                  />
+                </button>
               </div>
             </div>
           </div>
-        ))}
+        </div>
+      ))}
+
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-20">
+        <div
+          key={current}
+          className="h-full bg-blue-600 animate-progress-bar"
+        />
       </div>
 
-      <div className="w-full md:w-[40%] flex flex-col justify-center px-10 py-8">
-        <header className="mb-6">
-          <h1 className="text-5xl font-bold text-gray-900 tracking-tight">
-            Mom's <span className="text-blue-600">Kitchen</span>
-          </h1>
-          <div className="h-1 w-10 bg-blue-600 mt-1"></div>
-        </header>
-
-        <div className="space-y-4">
-          <h2 className="text-sm font-bold text-blue-600 uppercase tracking-widest leading-snug">
-            Aluminium Foil & Butter Paper Manufacturer
-          </h2>
-
-          <p className="text-sm text-gray-500 leading-relaxed text-justify">
-            Welcome to{" "}
-            <span className="font-semibold text-gray-800">
-              SAHU GROUP OF INDUSTRIES
-            </span>
-            . We specialize in manufacturing premium Aluminium foils and Butter
-            paper Rolls. As leading wholesalers of Jumbo Rolls, we provide
-            high-quality, customized solutions across{" "}
-            <span className="font-semibold italic">PAN India</span>.
-          </p>
-
-          <button className="mt-4 cursor-pointer px-6 py-2 border border-gray-900 text-gray-900 text-xs font-bold uppercase tracking-widest hover:bg-gray-900 hover:text-white transition-colors duration-300">
-            View Collection
-          </button>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 hidden md:block">
+        <div className="w-px h-16 bg-linear-to-b from-white/30 to-transparent relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-blue-500 animate-scroll-line" />
         </div>
       </div>
+
+      <style jsx global>{`
+        @keyframes scroll-line {
+          0% {
+            transform: translateY(-100%);
+          }
+          100% {
+            transform: translateY(200%);
+          }
+        }
+        @keyframes progress-bar {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+        .animate-scroll-line {
+          animation: scroll-line 2s infinite linear;
+        }
+        .animate-progress-bar {
+          animation: progress-bar 3500ms linear forwards;
+        }
+      `}</style>
     </section>
   );
 };
 
-export default HeroSection;
+export default HeroCarousel;
