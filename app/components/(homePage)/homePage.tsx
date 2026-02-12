@@ -1,17 +1,16 @@
 import NavBar from "@/app/components/navBar";
 import HeroSection from "./heroSection";
-import MaterialExcellence from "./materialExcellence";
-import MaterialSignature from "./materialSignaturet";
-import MaterialDensity from "./materialDensity";
+import Clients from "./clients";
+import WhyChooseUs from "./whyChooseUs";
+import Products from "./ourProducts";
 
 const HomePage = () => {
   return (
     <>
-      <NavBar />
       <HeroSection />
-      {/* <MaterialExcellence /> */}
-      {/* <MaterialSignature /> */}
-      <MaterialDensity />
+      <Products />
+      <WhyChooseUs />
+      <Clients />
     </>
   );
 };
