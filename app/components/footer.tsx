@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Mail,
   Phone,
@@ -16,7 +15,6 @@ const Footer = () => {
     <footer className="bg-[#0f172a] border-t border-slate-800/50 pt-10 md:pt-16 pb-6 md:pb-8 text-slate-300">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-y-8 md:gap-x-8">
-          {/* Column 1: Brand & Legacy */}
           <div className="md:col-span-5">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-3 md:mb-6 tracking-tight">
               Sahu Group <span className="text-blue-500">Of Industries</span>
@@ -25,7 +23,6 @@ const Footer = () => {
               The cradle of the aluminium industry in India. SGOI is one of
               Asia's largest modernised aluminium foil manufacturing bases.
             </p>
-            {/* Social Icons - More compact on mobile */}
             <div className="flex gap-3 mt-2 md:mt-8">
               {[
                 { icon: <Facebook size={16} />, href: "#" },
@@ -43,7 +40,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Contact Info - Two columns on mobile to save height */}
           <div className="md:col-span-3">
             <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white mb-4 md:mb-8 border-l-2 border-blue-500 pl-3 md:pl-4">
               Contact Us
@@ -84,7 +80,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 3: Newsletter & CTA */}
           <div className="md:col-span-4">
             <h3 className="text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-white mb-4 md:mb-8 border-l-2 border-blue-500 pl-3 md:pl-4">
               Be in the know
