@@ -10,14 +10,14 @@ const slides = [
   {
     image: carousel1,
     stat: "30,000 MT/ANNUALLY",
-    title: "India's Leading Foil Manufacturer",
+    title: "SAHU GROUP OF INDUSTRIES",
     description:
       "Delivering high-grade aluminium solutions to global markets with precision and sustainability.",
   },
   {
     image: carousel2,
     stat: "PAN INDIA REACH",
-    title: "Precision Rolled Products",
+    title: "SAHU GROUP OF INDUSTRIES PVT. LTD.",
     description:
       "Customized thickness and superior heat retention for diverse industrial packaging needs.",
   },

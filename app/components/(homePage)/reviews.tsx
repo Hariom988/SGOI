@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import review1 from "@/public/home/review1.png";
 import review2 from "@/public/home/review2.jpg";
@@ -20,7 +21,7 @@ const reviewsData: Testimonial[] = [
     role: "Director",
     company: "YNRS Business Solutions",
     content:
-      "Sahu Group of Industries is a reliable manufacturing partner that delivers high-quality products on time and within budget. Their team is knowledgeable and responsive.",
+      "Sahu Group of Industries is a reliable manufacturing partner that delivers high-quality products on time and within budget.",
     image: review1,
   },
   {
@@ -45,49 +46,49 @@ const reviewsData: Testimonial[] = [
 
 const Reviews = () => {
   return (
-    <section className="py-16 md:py-24 bg-slate-50/50 overflow-hidden">
+    <section className="py-12 md:py-24 bg-slate-50/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="mb-12 md:mb-16">
-          <h2 className="text-blue-600 text-xs font-bold uppercase tracking-[0.3em] mb-3">
-            Testimonials
-          </h2>
-          <p className="text-3xl md:text-4xl font-light text-slate-900">
+        <div className="mb-8 md:mb-16">
+          <p className="text-2xl md:text-4xl font-light text-slate-900">
             What our <span className="font-bold">Partners Say</span>
           </p>
         </div>
 
-        <div className="flex flex-wrap -m-3">
+        <div className="flex flex-nowrap md:flex-wrap overflow-x-auto md:overflow-visible gap-4 md:gap-0 pb-6 md:pb-0 snap-x snap-mandatory no-scrollbar">
           {reviewsData.map((review) => (
-            <div key={review.id} className="w-full md:w-1/3 p-3 flex">
-              <div className="bg-white border border-slate-100 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-between relative group overflow-hidden">
-                <Quote className="absolute -top-2 -right-2 w-24 h-24 text-slate-50 opacity-50 group-hover:text-blue-50 transition-colors" />
+            <div
+              key={review.id}
+              className="w-[85%] min-w-[85%] md:w-1/3 md:min-w-0 md:p-3 shrink-0 snap-center"
+            >
+              <div className="h-full bg-white border border-slate-100 p-5 md:p-8 rounded-2xl md:rounded-3xl shadow-sm hover:shadow-md transition-all duration-500 flex flex-col justify-between relative group overflow-hidden">
+                <Quote className="absolute -top-2 -right-2 w-16 h-16 md:w-24 md:h-24 text-slate-50 opacity-50 group-hover:text-blue-50 transition-colors" />
 
                 <div className="relative z-10">
-                  <div className="flex text-amber-400 mb-4 text-xs">
+                  <div className="flex text-amber-400 mb-3 text-[10px] md:text-xs">
                     {"★★★★★".split("").map((s, i) => (
                       <span key={i}>{s}</span>
                     ))}
                   </div>
 
-                  <p className="text-slate-600 italic text-sm md:text-base leading-relaxed mb-8">
+                  <p className="text-slate-600 italic text-xs md:text-base leading-relaxed mb-6">
                     "{review.content}"
                   </p>
                 </div>
 
-                <div className="relative z-10 flex items-center gap-4 border-t border-slate-50 pt-6">
-                  <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0">
+                <div className="relative z-10 flex items-center gap-3 md:gap-4 border-t border-slate-50 pt-4 md:pt-6">
+                  <div className="relative w-10 h-10 md:w-14 md:h-14 shrink-0">
                     <Image
                       src={review.image}
                       alt={review.name}
                       fill
-                      className="object-cover rounded-xl shadow-md  transition-all duration-500"
+                      className="object-cover rounded-lg md:rounded-xl shadow-sm"
                     />
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-sm md:text-base font-bold text-slate-900 leading-tight">
+                    <span className="text-[13px] md:text-base font-bold text-slate-900 leading-tight">
                       {review.name}
                     </span>
-                    <span className="text-[10px] md:text-xs font-medium text-blue-600 uppercase tracking-wider mt-1">
+                    <span className="text-[9px] md:text-xs font-medium text-blue-600 uppercase tracking-wider mt-0.5">
                       {review.role}, {review.company}
                     </span>
                   </div>
@@ -96,7 +97,23 @@ const Reviews = () => {
             </div>
           ))}
         </div>
+
+        <div className="flex justify-center gap-1.5 mt-2 md:hidden">
+          {reviewsData.map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };

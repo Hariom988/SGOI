@@ -33,12 +33,9 @@ const NavbarLight = () => {
         </div>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <Link
-            href="/"
-            className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-blue-200 transition-all active:scale-95"
-          >
-            Get a Quote
-          </Link>
+          <button className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-blue-200 transition-all active:scale-95">
+            <a href="tel:+1-800-123-4567">Get a Quote</a>
+          </button>
 
           <button
             onClick={() => setIsOpen(!isOpen)}
