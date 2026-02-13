@@ -33,46 +33,8 @@ const NavbarLight = () => {
         </div>
 
         <div className="flex items-center gap-3 sm:gap-6">
-          <button className="hidden sm:block bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-blue-200 transition-all active:scale-95">
+          <button className=" sm:block bg-blue-600 hover:bg-blue-700 text-white px-2 sm:px-8 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-bold tracking-wide shadow-lg shadow-blue-200 transition-all active:scale-95">
             <a href="tel:+1-800-123-4567">Get a Quote</a>
-          </button>
-
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
-            aria-label="Toggle Menu"
-          >
-            {isOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              </svg>
-            )}
           </button>
         </div>
       </div>
