@@ -76,7 +76,6 @@ const ProductCard = ({ product }: { product: Product }) => (
       <h3 className="text-xs md:text-xl font-bold text-slate-900 mb-1 md:mb-2 leading-tight line-clamp-1">
         {product.title}
       </h3>
-
       <div className="flex items-baseline gap-1 mb-3 md:mb-6">
         <span className="text-[10px] md:text-sm font-medium text-slate-500">
           Rs.
@@ -88,7 +87,6 @@ const ProductCard = ({ product }: { product: Product }) => (
           /{product.unit}
         </span>
       </div>
-
       <div className="flex flex-wrap md:grid md:grid-cols-2 gap-1 md:gap-y-3 md:gap-x-2 mb-4 md:mb-8 border-t border-slate-50 pt-3 md:pt-6">
         {product.specs.map((spec, index) => (
           <div
@@ -102,10 +100,11 @@ const ProductCard = ({ product }: { product: Product }) => (
           </div>
         ))}
       </div>
-
-      <button className="mt-auto hover:cursor-pointer w-full py-2 md:py-4 bg-slate-900 text-white text-[9px] md:text-xs font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-blue-600 transition-colors duration-300">
-        Quick Quote
-      </button>
+      <a href="tel:+1-800-123-4567">
+        <button className="mt-auto hover:cursor-pointer w-full py-2 md:py-4 bg-slate-900 text-white text-[9px] md:text-xs font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-blue-600 transition-colors duration-300">
+          Quick Quote
+        </button>
+      </a>
     </div>
   </div>
 );

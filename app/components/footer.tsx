@@ -99,10 +99,12 @@ const Footer = () => {
                   <ArrowRight size={16} />
                 </button>
               </form>
-
-              <button className="cursor-pointer w-full md:w-auto px-6 md:px-10 py-3 md:py-4 bg-white text-slate-950 text-[9px] md:text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-lg">
-                Get a Quote
-              </button>
+              <a
+                className="w-full text-center md:w-auto px-6 md:px-10 py-3 md:py-4 bg-white text-slate-950 text-[9px] md:text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-lg"
+                href="tel:+1-800-123-4567"
+              >
+                <button className="cursor-pointer text-xs">Get a Quote</button>
+              </a>
             </div>
           </div>
         </div>
