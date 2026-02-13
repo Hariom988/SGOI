@@ -2,7 +2,7 @@ import Image from "next/image";
 import review1 from "@/public/home/review1.png";
 import review2 from "@/public/home/review2.jpg";
 import review3 from "@/public/home/review3.jpeg";
-import { Quote } from "lucide-react"; // Optional: npm i lucide-react
+import { Quote } from "lucide-react";
 
 interface Testimonial {
   id: number;
@@ -80,7 +80,7 @@ const Reviews = () => {
                       src={review.image}
                       alt={review.name}
                       fill
-                      className="object-cover rounded-xl shadow-md grayscale group-hover:grayscale-0 transition-all duration-500"
+                      className="object-cover rounded-xl shadow-md  transition-all duration-500"
                     />
                   </div>
                   <div className="flex flex-col">
