@@ -115,7 +115,14 @@ const Footer = () => {
           </p>
           <div className="flex flex-row items-center gap-2">
             <span className="text-slate-400 text-[9px] uppercase font-black tracking-tighter">
-              Crafted by YNRS Group
+              Crafted by{" "}
+              <u>
+                {" "}
+                <a href="https://www.ynrsgroup.com/" target="_blank">
+                  {" "}
+                  YNRS Group
+                </a>
+              </u>
             </span>
           </div>
         </div>
