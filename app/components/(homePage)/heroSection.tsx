@@ -10,25 +10,26 @@ const slides = [
   {
     image: carousel1,
     stat: "30,000 MT/ANNUALLY",
-    title: "SAHU GROUP OF INDUSTRIES",
+    title: "SAHU GROUP",
     description:
       "Delivering high-grade aluminium solutions to global markets with precision and sustainability.",
   },
   {
     image: carousel2,
     stat: "PAN INDIA REACH",
-    title: "SAHU GROUP OF INDUSTRIES PVT. LTD.",
+    title: "SAHU GROUP OF INDUSTRIES",
     description:
       "Customized thickness and superior heat retention for diverse industrial packaging needs.",
   },
   {
     image: carousel3,
     stat: "ISO 9001 CERTIFIED",
-    title: "Sustainable Quality Standards",
+    title: "SAHU GROUP OF INDUSTRIES PVT. LTD.",
     description:
       "Eco-friendly manufacturing processes ensuring 100% food-grade safety and reliability.",
   },
 ];
+const textColors = ["text-[#D4AF37]", "text-[#8B4513]", "text-green-700"];
 
 const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
@@ -81,14 +82,17 @@ const HeroCarousel = () => {
               </div>
 
               <h1
-                className={`text-4xl md:text-7xl font-bold text-white leading-[1.1] mb-6 transition-all duration-700 delay-500 ${
+                className={`text-4xl   ${textColors[index]} md:text-7xl font-bold  leading-[1.1] mb-6 transition-all duration-700 delay-500 ${
                   index === current
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
               >
                 {slide.title.split(" ").map((word, i) => (
-                  <span key={i} className={i === 2 ? "text-blue-500" : ""}>
+                  <span
+                    key={i}
+                    className={i === 2 ? `${textColors[index]}` : ""}
+                  >
                     {word}{" "}
                   </span>
                 ))}
