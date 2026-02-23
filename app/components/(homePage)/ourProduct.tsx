@@ -1,3 +1,4 @@
+"use server";
 import { createClient } from "@/lib/supabase/server";
 
 interface Product {
@@ -24,7 +25,6 @@ const ProductCard = ({ product }: { product: Product }) => (
         className="object-contain w-full h-full p-4 md:p-8"
       />
     </div>
-
     <div className="p-3 md:p-8 flex flex-col grow">
       <h3 className="text-xs md:text-xl font-bold text-slate-900 mb-1 md:mb-2 leading-tight line-clamp-1">
         {product.title}
@@ -64,11 +64,15 @@ const ProductCard = ({ product }: { product: Product }) => (
 
 const Products = async () => {
   const supabase = await createClient();
-  const { data, error } = await supabase.from("products").select("*");
+  const { data } = await supabase
+    .from("products")
+    .select("*")
+    .order("display_order", { ascending: true });
+
   const products: Product[] = data ?? [];
 
   return (
-    <section className="py-12 md:py-24 bg-[#FBFCFE]">
+    <section id="products-section" className="py-12 md:py-24 bg-[#FBFCFE]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="max-w-3xl mb-8 md:mb-16">
           <h1 className="text-2xl md:text-5xl font-light text-slate-900 leading-tight mb-2 md:mb-4">
@@ -79,7 +83,6 @@ const Products = async () => {
             Products
           </h1>
         </div>
-
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
           {products.map((product: Product) => (
             <ProductCard key={product.id} product={product} />
