@@ -48,7 +48,8 @@ const Footer = () => {
               <li className="flex items-start gap-3 md:gap-4">
                 <MapPin size={16} className="text-blue-500 shrink-0 mt-0.5" />
                 <span className="text-slate-400 text-[11px] md:text-sm leading-snug">
-                  B-15, 1st Floor, Tigri Extension, New Delhi-110062
+                  41, 3rd Floor, DSIIDC , Scheme 1, Okhla Phase 2, New Delhi
+                  110020.
                 </span>
               </li>
               <li className="flex items-center gap-3 md:gap-4">
