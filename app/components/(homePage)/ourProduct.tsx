@@ -1,59 +1,14 @@
-import React from "react";
-import Image, { StaticImageData } from "next/image";
-
-import product1 from "@/public/home/product1.png";
-import product2 from "@/public/home/product2.jpeg";
-import product3 from "@/public/home/product3.jpg";
-import product4 from "@/public/home/product4.jpeg";
+import { createClient } from "@/lib/supabase/server";
 
 interface Product {
-  id: number;
+  id: string;
   category: string;
   title: string;
   price: string;
   unit: string;
-  image: StaticImageData;
+  image_url: string;
   specs: string[];
 }
-
-const products: Product[] = [
-  {
-    id: 1,
-    category: "Jumbo Rolls",
-    title: "Silver Foil Jumbo",
-    price: "265",
-    unit: "Per Kg",
-    image: product1,
-    specs: ["Micron 18", "Food Grade", "ISO Certified", "Dispatch"],
-  },
-  {
-    id: 2,
-    category: "Aluminium Foil",
-    title: "72 Mtr Kitchen Wrap",
-    price: "250",
-    unit: "Per Pcs",
-    image: product2,
-    specs: ["Micron 10.5", "Food Grade", "Domestic", "Approved"],
-  },
-  {
-    id: 3,
-    category: "Net / Gross",
-    title: "1 Kg Commercial Foil",
-    price: "295",
-    unit: "Per Pcs",
-    image: product3,
-    specs: ["Micron 18", "Heavy Duty", "Wholesale", "Good Quality"],
-  },
-  {
-    id: 4,
-    category: "Food Wrap",
-    title: "25 Mtr Standard",
-    price: "87",
-    unit: "Per Pcs",
-    image: product4,
-    specs: ["Micron 10.5", "Eco Friendly", "Standard", "Pan India"],
-  },
-];
 
 const ProductCard = ({ product }: { product: Product }) => (
   <div className="flex flex-col bg-white rounded-2xl md:rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group h-full">
@@ -63,12 +18,10 @@ const ProductCard = ({ product }: { product: Product }) => (
           {product.category}
         </span>
       </div>
-      <Image
-        src={product.image}
+      <img
+        src={product.image_url}
         alt={product.title}
-        fill
-        className="object-contain p-4 md:p-8 transition-transform duration-700 "
-        placeholder="blur"
+        className="object-contain w-full h-full p-4 md:p-8"
       />
     </div>
 
@@ -100,7 +53,7 @@ const ProductCard = ({ product }: { product: Product }) => (
           </div>
         ))}
       </div>
-      <a href="tel:+1-800-123-4567">
+      <a href="tel:+918076073126">
         <button className="mt-auto hover:cursor-pointer w-full py-2 md:py-4 bg-slate-900 text-white text-[9px] md:text-xs font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-blue-600 transition-colors duration-300">
           Quick Quote
         </button>
@@ -109,7 +62,11 @@ const ProductCard = ({ product }: { product: Product }) => (
   </div>
 );
 
-const Products = () => {
+const Products = async () => {
+  const supabase = await createClient();
+  const { data, error } = await supabase.from("products").select("*");
+  const products: Product[] = data ?? [];
+
   return (
     <section className="py-12 md:py-24 bg-[#FBFCFE]">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -123,11 +80,9 @@ const Products = () => {
           </h1>
         </div>
 
-        <div className="flex flex-wrap -m-1.5 md:-m-4">
-          {products.map((product) => (
-            <div key={product.id} className="w-1/2 lg:w-1/4 p-1.5 md:p-4">
-              <ProductCard product={product} />
-            </div>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-6">
+          {products.map((product: Product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </div>
