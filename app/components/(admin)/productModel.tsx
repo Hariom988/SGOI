@@ -106,21 +106,19 @@ export default function ProductModal({ product, onClose }: Props) {
           </h2>
           <button
             onClick={onClose}
-            className="text-slate-500 hover:text-white transition-colors"
+            className="cursor-pointer text-slate-500 hover:text-white transition-colors"
           >
             <X size={20} />
           </button>
         </div>
 
         <div className="p-6 space-y-4">
-          {/* Image Upload */}
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
               Product Image
             </label>
             {form.image_url && (
               <div className="w-full h-40 bg-slate-800 rounded-xl mb-3 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={form.image_url}
                   alt="preview"
@@ -151,7 +149,6 @@ export default function ProductModal({ product, onClose }: Props) {
             />
           </div>
 
-          {/* Category */}
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
               Category
@@ -167,7 +164,6 @@ export default function ProductModal({ product, onClose }: Props) {
             />
           </div>
 
-          {/* Title */}
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
               Product Title
@@ -183,7 +179,6 @@ export default function ProductModal({ product, onClose }: Props) {
             />
           </div>
 
-          {/* Price + Unit */}
           <div className="flex gap-3">
             <div className="flex-1">
               <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
@@ -218,7 +213,6 @@ export default function ProductModal({ product, onClose }: Props) {
             </div>
           </div>
 
-          {/* Display Order */}
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
               Display Order
@@ -240,7 +234,6 @@ export default function ProductModal({ product, onClose }: Props) {
             </p>
           </div>
 
-          {/* Specs */}
           <div>
             <label className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 block">
               Specs (up to 4)
@@ -267,14 +260,14 @@ export default function ProductModal({ product, onClose }: Props) {
         <div className="flex gap-3 p-6 border-t border-slate-800">
           <button
             onClick={onClose}
-            className="flex-1 py-3 bg-slate-800 text-slate-300 text-sm font-medium rounded-xl hover:bg-slate-700 transition-colors"
+            className="cursor-pointer flex-1 py-3 bg-slate-800 text-slate-300 text-sm font-medium rounded-xl hover:bg-slate-700 transition-colors"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
             disabled={saving || uploading}
-            className="flex-1 py-3 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="cursor-pointer flex-1 py-3 bg-blue-600 text-white text-sm font-bold rounded-xl hover:bg-blue-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving
               ? "Saving..."

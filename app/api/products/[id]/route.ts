@@ -1,7 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
-// PATCH /api/products/:id
 export async function PATCH(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -21,7 +20,6 @@ export async function PATCH(
   return NextResponse.json(data)
 }
 
-// DELETE /api/products/:id
 export async function DELETE(
   _request: Request,
   { params }: { params: Promise<{ id: string }> }

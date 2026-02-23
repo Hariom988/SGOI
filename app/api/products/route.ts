@@ -1,7 +1,5 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
-
-// GET /api/products — public, used by homepage
 export async function GET() {
   const supabase = await createClient()
   const { data, error } = await supabase
@@ -13,7 +11,6 @@ export async function GET() {
   return NextResponse.json(data)
 }
 
-// POST /api/products — admin only (protected by RLS + session)
 export async function POST(request: Request) {
   const supabase = await createClient()
   const body = await request.json()

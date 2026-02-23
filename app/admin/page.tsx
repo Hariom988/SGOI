@@ -65,7 +65,6 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950">
-      {/* Top Bar */}
       <header className="border-b border-slate-800 px-6 py-4 flex items-center justify-between">
         <div>
           <h1 className="text-xl font-bold text-white">
@@ -75,7 +74,7 @@ export default function AdminDashboard() {
         </div>
         <button
           onClick={handleLogout}
-          className="flex items-center gap-2 text-slate-400 hover:text-white text-xs font-medium transition-colors"
+          className="flex cursor-pointer items-center gap-2 text-slate-400 hover:text-white text-xs font-medium transition-colors"
         >
           <LogOut size={16} />
           Logout
@@ -83,7 +82,6 @@ export default function AdminDashboard() {
       </header>
 
       <main className="max-w-7xl mx-auto px-6 py-10">
-        {/* Header Row */}
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-bold text-white">Products</h2>
@@ -93,14 +91,13 @@ export default function AdminDashboard() {
           </div>
           <button
             onClick={handleAdd}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-colors"
+            className="flex cursor-pointer items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl text-sm font-bold transition-colors"
           >
             <Plus size={16} />
             Add Product
           </button>
         </div>
 
-        {/* Product Grid */}
         {loading ? (
           <div className="text-slate-500 text-sm">Loading products...</div>
         ) : (
@@ -111,7 +108,6 @@ export default function AdminDashboard() {
                 className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden group hover:border-slate-600 transition-all duration-300"
               >
                 <div className="relative h-48 bg-slate-800">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={product.image_url}
                     alt={product.title}
@@ -147,14 +143,14 @@ export default function AdminDashboard() {
                   <div className="flex gap-2 border-t border-slate-800 pt-3">
                     <button
                       onClick={() => handleEdit(product)}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium rounded-lg transition-colors"
+                      className="cursor-pointer flex-1 flex items-center justify-center gap-1.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium rounded-lg transition-colors"
                     >
                       <Pencil size={12} />
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(product.id)}
-                      className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-red-950/50 hover:bg-red-900/50 text-red-400 text-xs font-medium rounded-lg transition-colors"
+                      className="cursor-pointer flex-1 flex items-center justify-center gap-1.5 py-2 bg-red-950/50 hover:bg-red-900/50 text-red-400 text-xs font-medium rounded-lg transition-colors"
                     >
                       <Trash2 size={12} />
                       Delete
@@ -164,10 +160,9 @@ export default function AdminDashboard() {
               </div>
             ))}
 
-            {/* Add New Card (visual placeholder) */}
             <button
               onClick={handleAdd}
-              className="border-2 border-dashed border-slate-800 hover:border-blue-600 rounded-2xl h-64 flex flex-col items-center justify-center gap-3 text-slate-600 hover:text-blue-500 transition-all duration-300 group"
+              className="cursor-pointer border-2 border-dashed border-slate-800 hover:border-blue-600 rounded-2xl h-64 flex flex-col items-center justify-center gap-3 text-slate-600 hover:text-blue-500 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-full border-2 border-current flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Plus size={20} />

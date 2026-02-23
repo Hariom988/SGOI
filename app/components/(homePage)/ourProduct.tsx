@@ -18,7 +18,6 @@ const ProductCard = ({ product }: { product: Product }) => (
           {product.category}
         </span>
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={product.image_url}
         alt={product.title}
