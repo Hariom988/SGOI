@@ -1,9 +1,9 @@
-import NavBar from "@/app/components/navBar";
 import HeroSection from "./heroSection";
 import Clients from "./clients";
 import WhyChooseUs from "./whyChooseUs";
-import Products from "./ourProducts";
+import Products from "./ourProduct";
 import Reviews from "./reviews";
+export const revalidate = 0;
 
 const HomePage = () => {
   return (

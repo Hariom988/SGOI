@@ -65,11 +65,7 @@ const ProductCard = ({ product }: { product: Product }) => (
 
 const Products = async () => {
   const supabase = await createClient();
-  const { data } = await supabase
-    .from("products")
-    .select("*")
-    .order("display_order", { ascending: true });
-
+  const { data, error } = await supabase.from("products").select("*");
   const products: Product[] = data ?? [];
 
   return (
