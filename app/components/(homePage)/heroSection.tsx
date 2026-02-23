@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Mail } from "lucide-react";
 import carousel1 from "@/public/home/carousel1.jpg";
 import carousel2 from "@/public/home/carousel2.jpg";
 import carousel3 from "@/public/home/carousel3.jpg";
@@ -13,6 +13,7 @@ const slides = [
     title: "SAHU GROUP",
     description:
       "Delivering high-grade aluminium solutions to global markets with precision and sustainability.",
+    email: null,
   },
   {
     image: carousel2,
@@ -20,6 +21,7 @@ const slides = [
     title: "SAHU GROUP OF INDUSTRIES",
     description:
       "Customized thickness and superior heat retention for diverse industrial packaging needs.",
+    email: "momskitchenfoil@gmail.com",
   },
   {
     image: carousel3,
@@ -27,8 +29,10 @@ const slides = [
     title: "SAHU GROUP OF INDUSTRIES PVT. LTD.",
     description:
       "Eco-friendly manufacturing processes ensuring 100% food-grade safety and reliability.",
+    email: "sgoicompany@gmail.com",
   },
 ];
+
 const textColors = ["text-[#D4AF37]", "text-[#8B4513]", "text-green-700"];
 
 const HeroCarousel = () => {
@@ -42,6 +46,13 @@ const HeroCarousel = () => {
     const timer = setInterval(nextSlide, 3500);
     return () => clearInterval(timer);
   }, [nextSlide]);
+
+  const handleExplore = () => {
+    const section = document.getElementById("products-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section className="relative w-full h-[90dvh] overflow-hidden bg-slate-950">
@@ -82,7 +93,7 @@ const HeroCarousel = () => {
               </div>
 
               <h1
-                className={`text-4xl   ${textColors[index]} md:text-7xl font-bold  leading-[1.1] mb-6 transition-all duration-700 delay-500 ${
+                className={`text-4xl ${textColors[index]} md:text-7xl font-bold leading-[1.1] mb-6 transition-all duration-700 delay-500 ${
                   index === current
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
@@ -99,7 +110,7 @@ const HeroCarousel = () => {
               </h1>
 
               <p
-                className={`text-slate-200 text-sm md:text-xl max-w-xl mb-10 leading-relaxed font-light transition-all duration-700 delay-700 ${
+                className={`text-slate-200 text-sm md:text-xl max-w-xl mb-6 leading-relaxed font-light transition-all duration-700 delay-700 ${
                   index === current
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
@@ -109,13 +120,39 @@ const HeroCarousel = () => {
               </p>
 
               <div
+                className={`transition-all duration-700 delay-800 mb-8 ${
+                  index === current
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-10 opacity-0"
+                }`}
+              >
+                {slide.email && (
+                  <a
+                    href={`mailto:${slide.email}`}
+                    className="inline-flex items-center gap-2 text-slate-300 hover:text-white text-xs md:text-sm transition-colors group"
+                  >
+                    <Mail size={14} className="text-blue-400 shrink-0" />
+                    <span className="font-medium text-slate-400 mr-1">
+                      For Query:
+                    </span>
+                    <span className="underline underline-offset-2 decoration-slate-600 group-hover:decoration-blue-400 transition-all">
+                      {slide.email}
+                    </span>
+                  </a>
+                )}
+              </div>
+
+              <div
                 className={`transition-all duration-700 delay-1000 ${
                   index === current
                     ? "translate-y-0 opacity-100"
                     : "translate-y-10 opacity-0"
                 }`}
               >
-                <button className="group cursor-pointer flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-lg shadow-blue-900/20">
+                <button
+                  onClick={handleExplore}
+                  className="group cursor-pointer flex items-center gap-3 bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white hover:text-slate-950 transition-all duration-300 shadow-lg shadow-blue-900/20"
+                >
                   Explore Products
                   <ArrowRight
                     size={18}
