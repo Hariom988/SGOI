@@ -53,7 +53,7 @@ const ProductCard = ({ product }: { product: Product }) => (
           </div>
         ))}
       </div>
-      <a href="tel:+918076073126">
+      <a href="tel:+918527169717">
         <button className="mt-auto hover:cursor-pointer w-full py-2 md:py-4 bg-slate-900 text-white text-[9px] md:text-xs font-bold uppercase tracking-widest rounded-lg md:rounded-xl hover:bg-blue-600 transition-colors duration-300">
           Quick Quote
         </button>

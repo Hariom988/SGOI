@@ -18,15 +18,15 @@ const slides = [
   {
     image: carousel2,
     stat: "PAN INDIA REACH",
-    title: "SAHU GROUP OF INDUSTRIES",
+    title: "SGOI PRIVATE LIMITED",
     description:
       "Customized thickness and superior heat retention for diverse industrial packaging needs.",
-    email: "momskitchenfoil@gmail.com",
+    email: "sgoicompany@gmail.com",
   },
   {
     image: carousel3,
     stat: "ISO 9001 CERTIFIED",
-    title: "SAHU GROUP OF INDUSTRIES PVT. LTD.",
+    title: "SGOI PRIVATE LIMITED",
     description:
       "Eco-friendly manufacturing processes ensuring 100% food-grade safety and reliability.",
     email: "sgoicompany@gmail.com",
