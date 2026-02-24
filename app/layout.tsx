@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: "SGOI | Home",
+  title: "SPL | Home",
   description: "Aluminium Foil / Butter Paper Jumbo Rolls Manufacturer",
   icons: {
     icon: [{ url: "/favicon.ico", href: "/favicon.ico" }],
